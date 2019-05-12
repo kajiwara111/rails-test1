@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to new_contact_path
+      redirect_to new_contact_path, notice: '問い合わせを作成しました！'
     else
       #render :new, notice: 'content部分は1~140文字で入力してください'　←この書き方だとflash反映されない
       #nowがなくても動いた。nowは同一リクエストでflash伝えたいときに使用。render先にflash渡したいときはつける。
